@@ -99,3 +99,31 @@ jobs:
           severity: 'CRITICAL,HIGH'
           ignore-unfixed: true
           exit-code: '0'
+
+  # ==========================================================
+  # 3. CD Deployment Stage (Automated EC2 Deployment)
+  # ==========================================================
+  deploy:
+    name: Deploy to EC2
+    needs: docker-publish
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+
+    steps:
+      - name: SSH into EC2 and update container
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            echo "Pulling latest portfolio image from GHCR..."
+            docker compose pull portfolio || docker pull ghcr.io/${{ github.repository }}:latest
+
+            echo "Recreating portfolio container..."
+            docker compose up -d --no-deps portfolio
+
+            echo "Pruning unused images..."
+            docker image prune -f
+
+            echo "Continuous Deployment completed successfully!"

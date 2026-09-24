@@ -1,10 +1,18 @@
 import React from 'react';
-import { Terminal, Shield, Cpu, GitBranch, Server, ExternalLink, Mail, Award, CheckCircle2 } from 'lucide-react';
+import { Terminal, Shield, Cpu, GitBranch, Server, ExternalLink, Mail, Award, CheckCircle2, Bot, Layers, Cloud } from 'lucide-react';
 
 function GithubIcon({ className = "w-4 h-4" }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
       <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+    </svg>
+  );
+}
+
+function LinkedinIcon({ className = "w-4 h-4" }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76a1.62 1.62 0 1 0 0-3.24 1.62 1.62 0 0 0 0 3.24m1.39 9.74v-8.37H5.07v8.37h2.78z" />
     </svg>
   );
 }
@@ -35,18 +43,22 @@ export default function App() {
         <section id="about" className="space-y-6">
           <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyan-950/60 border border-cyan-800/60 text-cyan-400 text-xs font-mono">
             <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-            <span>Security Engineer transitioning to DevOps & AI Infrastructure</span>
+            <span>Security Engineer transitioning to DevOps & Cloud Infrastructure</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Yohanes Satria Pamungkas</span>
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl leading-relaxed">
-            Computer Science graduate and Security Engineer bridging the gap between operations and security. Specialized in DevSecOps, supply chain security, and AI infrastructure pipelines.
+            Computer Science graduate and Security Engineer bridging the gap between operations and security. Specialized in DevSecOps, containerized serverless pipelines, and cloud automation.
           </p>
-          <div className="flex space-x-4 pt-2">
+          <div className="flex flex-wrap gap-4 pt-2">
             <a href="#projects" className="px-5 py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-semibold hover:bg-cyan-400 transition flex items-center space-x-2">
               <Server className="w-4 h-4" />
               <span>Explore Projects</span>
+            </a>
+            <a href="https://www.linkedin.com/in/yohanes-satria-pamungkas" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-lg border border-slate-700 hover:border-cyan-500 text-slate-300 hover:text-cyan-400 transition flex items-center space-x-2">
+              <LinkedinIcon className="w-4 h-4" />
+              <span>LinkedIn</span>
             </a>
             <a href="https://github.com" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-lg border border-slate-700 hover:border-slate-500 transition flex items-center space-x-2">
               <GithubIcon className="w-4 h-4" />
@@ -100,30 +112,91 @@ export default function App() {
           </div>
         </section>
 
-        {/* Projects Section (Highlighting Portfolio CI/CD) */}
+        {/* Projects Section */}
         <section id="projects" className="space-y-8">
           <div className="space-y-2">
             <h2 className="text-2xl font-bold flex items-center space-x-2">
               <GitBranch className="w-6 h-6 text-cyan-400" />
-              <span>DevOps Showcase Project</span>
+              <span>DevOps Showcase Projects</span>
             </h2>
-            <p className="text-slate-400 text-sm">Demonstrating deployment and infrastructure automation principles.</p>
+            <p className="text-slate-400 text-sm">Demonstrating serverless cloud architectures, container orchestration, and CI/CD automation.</p>
           </div>
 
-          <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-              <h3 className="text-xl font-bold text-cyan-300">This Portfolio App & Automated CI/CD Pipeline</h3>
-              <span className="px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono self-start">Active Production</span>
+          <div className="space-y-6">
+            
+            {/* Project 1: Serverless PPT Generator */}
+            <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 transition space-y-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <div className="flex items-center space-x-3">
+                  <div className="p-2 rounded-lg bg-cyan-950/80 border border-cyan-800/60 text-cyan-400">
+                    <Bot className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-cyan-300">Serverless Liturgy PPT Generator & Telegram Bot</h3>
+                    <p className="text-xs text-slate-400 font-mono">Event-Driven Serverless Pipeline</p>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono self-start">Active Production</span>
+              </div>
+              
+              <p className="text-sm text-slate-300 leading-relaxed">
+                An event-driven serverless system that converts Catholic Sunday Liturgy Word documents (<code className="text-cyan-400">.doc</code>/<code className="text-cyan-400">.docx</code>) into 16:9 widescreen PowerPoint presentations with custom liturgical covers and balanced typography. Features a Telegram Bot Webhook endpoint hosted on AWS Lambda Function URLs with zero idle cost.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-xs">
+                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 space-y-1">
+                  <div className="font-semibold text-slate-200 flex items-center space-x-1.5">
+                    <Cloud className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>AWS Serverless</span>
+                  </div>
+                  <p className="text-slate-400">AWS Lambda container with headless LibreOffice & Python 3.11 in volatile <code className="text-slate-300">/tmp</code> storage.</p>
+                </div>
+
+                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 space-y-1">
+                  <div className="font-semibold text-slate-200 flex items-center space-x-1.5">
+                    <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Docker & Amazon ECR</span>
+                  </div>
+                  <p className="text-slate-400">Cross-compiled for <code className="text-slate-300">linux/amd64</code> with single OCI manifests and immutable digest pinning.</p>
+                </div>
+
+                <div className="p-3 rounded-lg bg-slate-950/60 border border-slate-800/80 space-y-1">
+                  <div className="font-semibold text-slate-200 flex items-center space-x-1.5">
+                    <GitBranch className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>GitHub Actions CI/CD</span>
+                  </div>
+                  <p className="text-slate-400">100% automated build, test, ECR push, and zero-downtime rolling Lambda updates on <code className="text-slate-300">git push</code>.</p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-cyan-300 text-xs font-mono">AWS Lambda</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Amazon ECR</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Docker</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">GitHub Actions</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Telegram Bot API</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">CloudWatch</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Python 3.11</span>
+              </div>
             </div>
-            <p className="text-sm text-slate-300 leading-relaxed">
-              A modern, highly performant React application designed to exhibit a professional transition into DevOps. Built with container readiness in mind, integrated with automated build hooks, and managed via version control workflows.
-            </p>
-            <div className="flex flex-wrap gap-2 pt-2">
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">React & Tailwind</span>
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">GitHub Actions</span>
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Automated Deployment</span>
-              <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Shift-Left Security</span>
+
+            {/* Project 2: Portfolio CI/CD */}
+            <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
+                <h3 className="text-xl font-bold text-cyan-300">This Portfolio App & Automated CI/CD Pipeline</h3>
+                <span className="px-3 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 text-xs font-mono self-start">Active Production</span>
+              </div>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                A modern, highly performant React application designed to exhibit a professional transition into DevOps. Built with container readiness in mind, integrated with automated build hooks, and managed via version control workflows.
+              </p>
+              <div className="flex flex-wrap gap-2 pt-2">
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">React & Tailwind</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">GitHub Actions</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Automated Deployment</span>
+                <span className="px-2.5 py-1 rounded bg-slate-800 text-slate-300 text-xs font-mono">Shift-Left Security</span>
+              </div>
             </div>
+
           </div>
         </section>
 
@@ -131,9 +204,13 @@ export default function App() {
         <section id="contact" className="space-y-6 text-center pb-12">
           <h2 className="text-2xl font-bold">Let's Connect</h2>
           <p className="text-slate-400 text-sm max-w-md mx-auto">
-            Looking for a dedicated engineer ready to tackle DevOps, pipeline security, and infrastructure roles? Drop me a message.
+            Looking for a dedicated engineer ready to tackle DevOps, pipeline security, and cloud infrastructure roles? Drop me a message or connect on LinkedIn.
           </p>
-          <div className="flex justify-center space-x-4">
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="https://www.linkedin.com/in/yohanes-satria-pamungkas" target="_blank" rel="noreferrer" className="px-5 py-2.5 rounded-lg bg-cyan-950/60 border border-cyan-800/80 hover:border-cyan-400 text-cyan-300 transition flex items-center space-x-2 text-sm">
+              <LinkedinIcon className="w-4 h-4" />
+              <span>LinkedIn Profile</span>
+            </a>
             <a href="mailto:yohanesstrp@gmail.com" className="px-5 py-2.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-cyan-500 transition flex items-center space-x-2 text-sm">
               <Mail className="w-4 h-4 text-cyan-400" />
               <span>yohanesstrp@gmail.com</span>

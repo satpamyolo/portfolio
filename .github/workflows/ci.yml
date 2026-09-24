@@ -117,8 +117,12 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -e
+            echo "Navigating to docker-compose directory..."
+            cd /home/ec2-user/n8n
+
             echo "Pulling latest portfolio image from GHCR..."
-            docker compose pull portfolio || docker pull ghcr.io/${{ github.repository }}:latest
+            docker compose pull portfolio
 
             echo "Recreating portfolio container..."
             docker compose up -d --no-deps portfolio
